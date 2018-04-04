@@ -1,0 +1,27 @@
+page-home {
+    .topic {
+        font-size: smaller;
+        color: gray;
+        font-weight: lighter
+    }
+    .title{
+        font-weight: bold;
+        font-size: medium
+    }
+    #photo{
+        width: 40%;
+        float: right;
+    }
+    #text{
+        width: 60%;
+        float: left;
+        font-size: smaller;
+    }
+    .clear{
+        clear: both;
+    }
+    .photo{
+        margin-left: 10px;
+        height: 100px;
+    }
+}

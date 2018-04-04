@@ -1,1 +1,61 @@
-
+<ion-header>
+        <ion-navbar>
+          <ion-title>
+            首页
+          </ion-title>
+        </ion-navbar>
+      </ion-header>
+<ion-content padding>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+         <ion-refresher-content
+         pullingIcon="planet-outline"
+         pullingText="下滑刷新"
+         refreshingSpinner="circles"
+         ></ion-refresher-content>
+     </ion-refresher>
+   <ion-card *ngFor="let item of items">
+        <ion-card-content>
+           <div id="topic">
+             <span class="topic">来自话题:</span><span id="topic" class="topic">{{item?.topic}}</span>
+               </div>
+            </ion-card-content>
+            <ion-card-content>
+                <div id="title">
+             <span class="title">{{item?.title}}</span>
+                </div>
+               </ion-card-content>
+                <ion-card-content>
+                    <div id="content">
+                              <div id="photo">
+                                <img class="photo" src= {{item?.img}}>
+                              </div>
+                           <div id="text">
+                             <span id="answer">{{item?.answer}}</span>
+                             <span>:</span><span>{{item?.content}}</span>
+                           </div>
+                        </div>
+                        <div class="clear"></div>
+                     </ion-card-content>
+                     <ion-row>
+                      <ion-col>
+                         <button ion-button icon-left clear small>
+                            <ion-icon name="thumbs-up"></ion-icon>
+                              <span id="like">{{item?.like}}</span>
+                              <span id style="white-space:pre"> 赞同</span>
+                        </button>
+                     </ion-col>
+                    <ion-col>
+                      <button ion-button icon-left clear small>
+                     <ion-icon name="text"></ion-icon>
+                      <span id="comments" style="white-space:pre">{{item?.comment}}</span>
+                      <span>评论</span>
+                     </button>
+                 </ion-col>
+                <ion-col center text-center>
+                </ion-col>
+                </ion-row>
+       </ion-card>  
+   <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+   <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+ </ion-content>
